@@ -1,6 +1,6 @@
 package com.tensquare;
 
-import com.tensquare.utils.IdWorker;
+import util.IdWorker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

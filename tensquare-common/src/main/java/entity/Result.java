@@ -1,4 +1,4 @@
-package com.tensquare.entity;
+package entity;
 
 public class Result {
     private boolean flag;//是否成功

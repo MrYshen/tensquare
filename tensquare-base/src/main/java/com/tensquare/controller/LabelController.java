@@ -1,11 +1,15 @@
 package com.tensquare.controller;
 
-import com.tensquare.entity.Result;
-import com.tensquare.entity.StatusCode;
+import entity.PageResult;
+import entity.Result;
+import entity.StatusCode;
 import com.tensquare.pojo.Label;
 import com.tensquare.service.LabelServie;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @CrossOrigin
@@ -42,5 +46,17 @@ public class LabelController {
     public Result delete(@PathVariable("labelId")String labelId){
         labelServie.deleteById(labelId);
         return new Result(true, StatusCode.OK,"删除成功");
+    }
+
+    @PostMapping("/search")
+    public Result findSearch(@RequestBody Label label){
+        List<Label> labels = this.labelServie.findSearch(label);
+        return new Result(true,StatusCode.OK,"查询成功",labels);
+    }
+
+    @PostMapping("/search/{page}/{size}")
+    public Result pageQuery(@RequestBody Label label,@PathVariable int page,@PathVariable int size){
+        Page<Label> pageData = this.labelServie.pageQuery(label,page,size);
+        return new Result(true,StatusCode.OK,"查询成功",new PageResult<Label>(pageData.getTotalElements(),pageData.getContent()));
     }
 }
