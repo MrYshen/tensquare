@@ -6,14 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="tensquare-recruit" />
+        <module name="tensquare-spit" />
         <module name="tensquare-article" />
-        <module name="tensquare-gathering" />
-        <module name="tensquare-base" />
         <module name="tensquare-search" />
+        <module name="tensquare-recruit" />
+        <module name="tensquare-base" />
+        <module name="tensquare-sms" />
+        <module name="tensquare-gathering" />
         <module name="tensquare-qa" />
         <module name="tensquare-common" />
-        <module name="tensquare-spit" />
+        <module name="tensquare-user" />
       </profile>
     </annotationProcessing>
   </component>
@@ -26,7 +28,9 @@
       <module name="tensquare-qa" options="-parameters" />
       <module name="tensquare-recruit" options="-parameters" />
       <module name="tensquare-search" options="-parameters" />
+      <module name="tensquare-sms" options="-parameters" />
       <module name="tensquare-spit" options="-parameters" />
+      <module name="tensquare-user" options="-parameters" />
     </option>
   </component>
 </project>
