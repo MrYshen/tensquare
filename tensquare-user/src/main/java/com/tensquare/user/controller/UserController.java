@@ -1,7 +1,9 @@
 package com.tensquare.user.controller;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.tensquare.user.pojo.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -13,6 +15,8 @@ import com.tensquare.user.service.UserService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import util.JwtUtil;
+
 /**
  * 控制器层
  * @author Administrator
@@ -28,6 +32,32 @@ public class UserController {
 
 	@Autowired
 	private StringRedisTemplate redisTemplate;
+
+	@Autowired
+	private JwtUtil jwtUtil;
+
+	/**
+	 * 更新粉丝数
+	 */
+	@PutMapping("/{userId}/{friendId}/{x}")
+	public void updateFanscountAndFollowcount(@PathVariable("userId")String userId,@PathVariable("friendId")String friendId,@PathVariable("x")int x){
+		this.userService.updateFanscountAndFollowcount(x,userId,friendId);
+
+	}
+
+	@PostMapping("login")
+	public Result login(@RequestBody User user){
+		User userLogin = this.userService.login(user.getMobile(),user.getPassword());
+		if (userLogin==null){
+			return new Result(false, StatusCode.LOGINERROR, "登录失败");
+		}
+		//使得前后端可以通话的操作
+		String token = jwtUtil.createJWT(userLogin.getId(), userLogin.getMobile(), "user");
+		Map<String, Object> map = new HashMap<>();
+		map.put("token", token);
+		map.put("role", "user");
+		return new Result(true, StatusCode.OK, "登录成功",map);
+	}
 
 
 	/**

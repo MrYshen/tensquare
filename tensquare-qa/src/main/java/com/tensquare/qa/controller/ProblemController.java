@@ -2,6 +2,7 @@ package com.tensquare.qa.controller;
 import java.util.List;
 import java.util.Map;
 
+import com.tensquare.qa.client.BaseClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,9 @@ import com.tensquare.qa.service.ProblemService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 控制器层
  * @author Administrator
@@ -24,6 +28,17 @@ public class ProblemController {
 
 	@Autowired
 	private ProblemService problemService;
+
+	@Autowired
+	private HttpServletRequest request;
+
+	@Autowired
+	private BaseClient baseClient;
+
+	@GetMapping("/label/{labelId}")
+	public Result findByLabelId(@PathVariable("labelId")String labelId){
+		return this.baseClient.findById(labelId);
+	}
 	
 	@GetMapping("/newlist/{labelId}/{page}/{size}")
 	public Result newlist(@PathVariable String labelId,@PathVariable int page,@PathVariable int size){
@@ -92,6 +107,10 @@ public class ProblemController {
 	 */
 	@RequestMapping(method=RequestMethod.POST)
 	public Result add(@RequestBody Problem problem  ){
+		String token = (String) request.getAttribute("claims_user");
+		if(token == null || "".equals(token)){
+			return new Result(false, StatusCode.ACCESSERROR, "权限不足");
+		}
 		problemService.add(problem);
 		return new Result(true,StatusCode.OK,"增加成功");
 	}

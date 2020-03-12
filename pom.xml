@@ -18,6 +18,8 @@
         <module>tensquare-search</module>
         <module>tensquare-user</module>
         <module>tensquare-sms</module>
+        <module>tensquare-eureka</module>
+        <module>tensquare-friend</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -27,6 +29,19 @@
         <version>2.0.6.RELEASE</version>
         <relativePath/>
     </parent>
+
+    <dependencyManagement>
+        <dependencies>
+        <!-- springCloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.SR2</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>

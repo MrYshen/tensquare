@@ -15,3 +15,13 @@ spring:
     host: 192.168.228.128
   rabbitmq:
     host: 192.168.228.128
+jwt:
+  config:
+    key: edu.hust
+    ttl: 3600000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka/
+  instance:
+    prefer-ip-address: true
