@@ -6,6 +6,8 @@ import entity.StatusCode;
 import com.tensquare.pojo.Label;
 import com.tensquare.service.LabelServie;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,10 +16,15 @@ import java.util.List;
 @RestController
 @CrossOrigin
 @RequestMapping("/label")
+@RefreshScope
 public class LabelController {
 
     @Autowired
     private LabelServie labelServie;
+
+//    //自定义配置需要加上@RefreshScope注解然后这样就可以更新配置后将自定义的配置也更新
+//    @Value("${sms.ip}")
+//    private String ip;
 
     @GetMapping
     public Result findAll(){

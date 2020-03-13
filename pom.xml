@@ -22,6 +22,7 @@
         <module>tensquare-friend</module>
         <module>tensquare-manager</module>
         <module>tensquare-webGateway</module>
+        <module>tensquare-config</module>
     </modules>
     <packaging>pom</packaging>
 

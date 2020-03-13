@@ -13,6 +13,7 @@
         <module name="tensquare-manager" />
         <module name="tensquare-base" />
         <module name="tensquare-eureka" />
+        <module name="tensquare-config" />
         <module name="tensquare-friend" />
         <module name="tensquare-common" />
         <module name="tensquare-article" />
@@ -31,6 +32,7 @@
       <module name="tensquare-article" options="-parameters" />
       <module name="tensquare-base" options="-parameters" />
       <module name="tensquare-common" options="-parameters" />
+      <module name="tensquare-config" options="-parameters" />
       <module name="tensquare-eureka" options="-parameters" />
       <module name="tensquare-friend" options="-parameters" />
       <module name="tensquare-gathering" options="-parameters" />
