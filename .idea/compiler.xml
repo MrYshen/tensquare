@@ -6,20 +6,25 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="tensquare-recruit" />
-        <module name="tensquare-eureka" />
-        <module name="tensquare-article" />
-        <module name="tensquare-friend" />
-        <module name="tensquare-gathering" />
-        <module name="tensquare-base" />
-        <module name="tensquare-sms" />
         <module name="tensquare-spit" />
-        <module name="tensquare-search" />
-        <module name="tensquare-qa" />
-        <module name="tensquare-common" />
         <module name="tensquare-user" />
+        <module name="tensquare-sms" />
+        <module name="tensquare-gathering" />
+        <module name="tensquare-manager" />
+        <module name="tensquare-base" />
+        <module name="tensquare-eureka" />
+        <module name="tensquare-friend" />
+        <module name="tensquare-common" />
+        <module name="tensquare-article" />
+        <module name="tensquare-search" />
+        <module name="tensquare-recruit" />
+        <module name="tensquare-qa" />
+        <module name="tensquare-webGateway" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="tensquare-web" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
@@ -29,12 +34,15 @@
       <module name="tensquare-eureka" options="-parameters" />
       <module name="tensquare-friend" options="-parameters" />
       <module name="tensquare-gathering" options="-parameters" />
+      <module name="tensquare-manager" options="-parameters" />
       <module name="tensquare-qa" options="-parameters" />
       <module name="tensquare-recruit" options="-parameters" />
       <module name="tensquare-search" options="-parameters" />
       <module name="tensquare-sms" options="-parameters" />
       <module name="tensquare-spit" options="-parameters" />
       <module name="tensquare-user" options="-parameters" />
+      <module name="tensquare-web" options="-parameters" />
+      <module name="tensquare-webGateway" options="-parameters" />
     </option>
   </component>
 </project>
