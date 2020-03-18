@@ -9,7 +9,7 @@ spring:
         git:
           uri: https://gitee.com/mryshen/tensquare-config.git
   rabbitmq:
-    host: 192.168.228.128
+    host: 192.168.228.130
 management:
   endpoints:
     web:

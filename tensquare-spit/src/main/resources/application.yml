@@ -5,10 +5,10 @@ spring:
     name: tensquare‐spit #指定服务名
   data:
     mongodb:
-      host: 192.168.228.128
+      host: 192.168.228.130
       database: spitdb
   redis:
-    host: 192.168.228.128
+    host: 192.168.228.130
 eureka:
   client:
     service-url:
